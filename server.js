@@ -52,8 +52,6 @@ const connectMongoDB = async () => {
     try {
         const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/tradingai';
         await mongoose.connect(mongoUri, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
             serverSelectionTimeoutMS: 5000,
             socketTimeoutMS: 45000,
             family: 4 // Use IPv4, skip trying IPv6
