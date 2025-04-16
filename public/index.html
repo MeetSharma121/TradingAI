@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TradingAI - AI Stock Trading Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(33,33,33,0.95) 100%);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-effect">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center space-x-2">
+                    <img src="/images/logo.svg" alt="TradingAI" class="h-8 w-auto">
+                    <span class="text-xl font-bold gradient-text">TradingAI</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-yellow-400">Home</a>
+                    <a href="/pages/about.html" class="hover:text-yellow-400 transition-colors">About</a>
+                    <a href="/pages/products.html" class="hover:text-yellow-400 transition-colors">Products</a>
+                    <a href="/pages/contact.html" class="hover:text-yellow-400 transition-colors">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button onclick="window.location.href='/pages/login.html'" class="px-4 py-2 rounded glass-effect hover:bg-yellow-500 hover:bg-opacity-20 transition-all">
+                        Login
+                    </button>
+                    <button onclick="window.location.href='/pages/signup.html'" class="px-4 py-2 rounded bg-yellow-500 hover:bg-yellow-400 transition-colors">
+                        Sign Up
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-screen flex items-center pt-16">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <h1 class="text-5xl md:text-6xl font-bold gradient-text animate__animated animate__fadeInUp">
+                    Discover the Future of Stock Trading
+                </h1>
+                <p class="text-xl text-gray-300 animate__animated animate__fadeInUp animate__delay-1s">
+                    Immerse yourself in a next-gen stock market experience, where cutting-edge AI and insightful analytics converge to revolutionize your financial journey.
+                </p>
+                <div class="flex space-x-4 animate__animated animate__fadeInUp animate__delay-2s">
+                    <button class="px-8 py-3 rounded-lg bg-yellow-500 hover:bg-yellow-400 transition-colors font-bold">
+                        Get Started
+                    </button>
+                    <button class="px-8 py-3 rounded-lg glass-effect hover:bg-white hover:bg-opacity-10 transition-all">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+            <div id="heroModel" class="relative h-[600px] animate-float">
+                <!-- 3D Model will be rendered here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Powerful Trading Features</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-effect p-8 rounded-xl transform hover:-translate-y-2 transition-all">
+                    <div class="text-yellow-500 text-4xl mb-4">📈</div>
+                    <h3 class="text-xl font-bold mb-4">AI-Powered Predictions</h3>
+                    <p class="text-gray-400">Advanced machine learning algorithms analyze market patterns to provide accurate predictions.</p>
+                </div>
+                <div class="glass-effect p-8 rounded-xl transform hover:-translate-y-2 transition-all">
+                    <div class="text-yellow-500 text-4xl mb-4">🔍</div>
+                    <h3 class="text-xl font-bold mb-4">Real-time Analytics</h3>
+                    <p class="text-gray-400">Monitor market movements and get instant insights with our real-time analysis tools.</p>
+                </div>
+                <div class="glass-effect p-8 rounded-xl transform hover:-translate-y-2 transition-all">
+                    <div class="text-yellow-500 text-4xl mb-4">🎯</div>
+                    <h3 class="text-xl font-bold mb-4">Portfolio Optimization</h3>
+                    <p class="text-gray-400">Optimize your investment portfolio with our smart diversification strategies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trading Interface -->
+    <section class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="glass-effect rounded-2xl p-8">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Chart Section -->
+                    <div class="md:col-span-2">
+                        <div class="bg-gray-900 rounded-xl p-4">
+                            <canvas id="tradingChart" class="w-full h-[400px]"></canvas>
+                        </div>
+                    </div>
+                    <!-- Trading Controls -->
+                    <div class="space-y-6">
+                        <div class="glass-effect rounded-xl p-6">
+                            <h3 class="text-xl font-bold mb-4">Quick Trade</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-400 mb-2">Stock Symbol</label>
+                                    <input type="text" id="stockSymbol" class="w-full bg-gray-800 rounded-lg px-4 py-2 focus:ring-2 focus:ring-yellow-500 focus:outline-none">
+                                </div>
+                                <button id="predictBtn" class="w-full px-4 py-3 bg-yellow-500 hover:bg-yellow-400 rounded-lg font-bold transition-colors">
+                                    Get AI Prediction
+                                </button>
+                            </div>
+                        </div>
+                        <div id="prediction" class="glass-effect rounded-xl p-6">
+                            <h3 class="text-xl font-bold mb-4">AI Prediction</h3>
+                            <div class="text-gray-400">Enter a stock symbol to get started...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center backdrop-blur-sm">
+        <div class="glass-effect rounded-2xl p-8 w-full max-w-md">
+            <h2 id="authTitle" class="text-2xl font-bold mb-6 gradient-text">Welcome Back</h2>
+            <form id="authForm" class="space-y-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-400 mb-2">Email</label>
+                    <input type="email" id="email" class="w-full bg-gray-800 rounded-lg px-4 py-2 focus:ring-2 focus:ring-yellow-500 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-400 mb-2">Password</label>
+                    <input type="password" id="password" class="w-full bg-gray-800 rounded-lg px-4 py-2 focus:ring-2 focus:ring-yellow-500 focus:outline-none">
+                </div>
+                <div class="flex justify-between">
+                    <button type="submit" class="px-6 py-2 bg-yellow-500 hover:bg-yellow-400 rounded-lg font-bold transition-colors">
+                        Login
+                    </button>
+                    <button type="button" id="closeAuthModal" class="px-6 py-2 glass-effect rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/auth.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/animations.js"></script>
+</body>
+</html>

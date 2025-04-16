@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - TradingAI</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        .gradient-text {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(33,33,33,0.95) 100%);
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-effect">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center space-x-2">
+                    <img src="/images/logo.svg" alt="TradingAI" class="h-8 w-auto">
+                    <span class="text-xl font-bold gradient-text">TradingAI</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="hover:text-yellow-400 transition-colors">Home</a>
+                    <a href="/pages/about.html" class="hover:text-yellow-400 transition-colors">About</a>
+                    <a href="/pages/products.html" class="text-yellow-400">Products</a>
+                    <a href="/pages/contact.html" class="hover:text-yellow-400 transition-colors">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button onclick="window.location.href='/pages/login.html'" class="px-4 py-2 rounded glass-effect hover:bg-yellow-500 hover:bg-opacity-20 transition-all">
+                        Login
+                    </button>
+                    <button onclick="window.location.href='/pages/signup.html'" class="px-4 py-2 rounded bg-yellow-500 hover:bg-yellow-400 transition-colors">
+                        Sign Up
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Products Content -->
+    <main class="pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h1 class="text-5xl font-bold gradient-text mb-6">Our Products</h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Discover our suite of AI-powered trading tools designed to maximize your trading potential.
+                </p>
+            </div>
+
+            <!-- Product Cards -->
+            <div id="productContainer" class="grid md:grid-cols-3 gap-8 mb-20">
+                <!-- Products will be loaded dynamically -->
+                <div class="glass-effect p-8 rounded-xl animate-pulse">
+                    <div class="h-8 w-8 bg-gray-700 rounded mb-4"></div>
+                    <div class="h-6 bg-gray-700 rounded w-3/4 mb-4"></div>
+                    <div class="h-24 bg-gray-700 rounded mb-4"></div>
+                    <div class="space-y-2">
+                        <div class="h-4 bg-gray-700 rounded w-full"></div>
+                        <div class="h-4 bg-gray-700 rounded w-5/6"></div>
+                        <div class="h-4 bg-gray-700 rounded w-4/6"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enterprise Section -->
+            <div class="glass-effect rounded-xl p-12 text-center">
+                <h2 class="text-3xl font-bold gradient-text mb-6">Enterprise Solutions</h2>
+                <p class="text-gray-300 mb-8 max-w-2xl mx-auto">
+                    Need a custom solution for your organization? We offer enterprise-grade trading solutions tailored to your specific needs.
+                </p>
+                <button onclick="window.location.href='/pages/contact.html'" class="px-8 py-3 rounded-lg glass-effect hover:bg-white hover:bg-opacity-10 transition-all">
+                    Contact Sales
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="/js/auth.js"></script>
+    <script>
+        // Fetch products from the API
+        async function fetchProducts() {
+            try {
+                const response = await fetch('/api/products');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch products');
+                }
+                const products = await response.json();
+                displayProducts(products);
+            } catch (error) {
+                console.error('Error:', error);
+                showError('Failed to load products. Please try again later.');
+            }
+        }
+
+        // Display products in the container
+        function displayProducts(products) {
+            const container = document.getElementById('productContainer');
+            container.innerHTML = products.map(product => `
+                <div class="glass-effect p-8 rounded-xl transform hover:-translate-y-2 transition-all">
+                    <div class="text-yellow-500 text-4xl mb-4">${product.icon}</div>
+                    <h3 class="text-2xl font-bold mb-4">${product.name}</h3>
+                    <p class="text-gray-400 mb-6">${product.enhancedDescription || product.description}</p>
+                    <ul class="text-gray-400 space-y-2 mb-8">
+                        ${product.features.map(feature => `
+                            <li>✓ ${feature}</li>
+                        `).join('')}
+                    </ul>
+                    <div class="text-2xl font-bold gradient-text mb-4">$${product.price}/month</div>
+                    <button onclick="window.location.href='/pages/signup.html'" 
+                            class="w-full px-4 py-2 rounded bg-yellow-500 hover:bg-yellow-400 transition-colors">
+                        Get Started
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        // Show error message
+        function showError(message) {
+            const container = document.getElementById('productContainer');
+            container.innerHTML = `
+                <div class="col-span-3 text-center">
+                    <div class="glass-effect p-8 rounded-xl">
+                        <div class="text-red-500 text-4xl mb-4">⚠️</div>
+                        <h3 class="text-xl font-bold mb-4">Error</h3>
+                        <p class="text-gray-400">${message}</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Load products when the page loads
+        document.addEventListener('DOMContentLoaded', fetchProducts);
+    </script>
+</body>
+</html> 

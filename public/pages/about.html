@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - TradingAI</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        .gradient-text {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(33,33,33,0.95) 100%);
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-effect">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center space-x-2">
+                    <img src="/images/logo.svg" alt="TradingAI" class="h-8 w-auto">
+                    <span class="text-xl font-bold gradient-text">TradingAI</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="hover:text-yellow-400 transition-colors">Home</a>
+                    <a href="/pages/about.html" class="text-yellow-400">About</a>
+                    <a href="/pages/products.html" class="hover:text-yellow-400 transition-colors">Products</a>
+                    <a href="/pages/contact.html" class="hover:text-yellow-400 transition-colors">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button onclick="window.location.href='/pages/login.html'" class="px-4 py-2 rounded glass-effect hover:bg-yellow-500 hover:bg-opacity-20 transition-all">
+                        Login
+                    </button>
+                    <button onclick="window.location.href='/pages/signup.html'" class="px-4 py-2 rounded bg-yellow-500 hover:bg-yellow-400 transition-colors">
+                        Sign Up
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Content -->
+    <main class="pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h1 class="text-5xl font-bold gradient-text mb-6">About TradingAI</h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Revolutionizing trading with artificial intelligence and machine learning.
+                </p>
+            </div>
+
+            <!-- Mission Statement -->
+            <div class="glass-effect rounded-xl p-8 mb-12">
+                <h2 class="text-3xl font-bold gradient-text mb-6">Our Mission</h2>
+                <p class="text-gray-300 text-lg mb-6">
+                    At TradingAI, we're dedicated to democratizing access to advanced trading technologies. 
+                    Our platform combines cutting-edge AI algorithms with user-friendly interfaces to help 
+                    both novice and experienced traders make better investment decisions.
+                </p>
+            </div>
+
+            <!-- Key Features -->
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="glass-effect p-8 rounded-xl transform hover:-translate-y-2 transition-all">
+                    <div class="text-yellow-500 text-4xl mb-4">🤖</div>
+                    <h3 class="text-xl font-bold mb-4">AI-Powered Trading</h3>
+                    <p class="text-gray-400">
+                        Our advanced AI models analyze market data 24/7, identifying patterns and opportunities 
+                        that human traders might miss. The system continuously learns and adapts to market conditions.
+                    </p>
+                </div>
+                <div class="glass-effect p-8 rounded-xl transform hover:-translate-y-2 transition-all">
+                    <div class="text-yellow-500 text-4xl mb-4">📊</div>
+                    <h3 class="text-xl font-bold mb-4">Real-time Analytics</h3>
+                    <p class="text-gray-400">
+                        Get instant insights with our comprehensive analytics dashboard. Track performance, 
+                        monitor market trends, and receive real-time alerts for trading opportunities.
+                    </p>
+                </div>
+                <div class="glass-effect p-8 rounded-xl transform hover:-translate-y-2 transition-all">
+                    <div class="text-yellow-500 text-4xl mb-4">🔒</div>
+                    <h3 class="text-xl font-bold mb-4">Secure & Reliable</h3>
+                    <p class="text-gray-400">
+                        Your security is our priority. We implement bank-grade encryption and follow 
+                        industry best practices to protect your data and investments.
+                    </p>
+                </div>
+            </div>
+
+            <!-- How It Works -->
+            <div class="glass-effect rounded-xl p-8 mb-12">
+                <h2 class="text-3xl font-bold gradient-text mb-6">How It Works</h2>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="text-yellow-500 text-4xl mb-4">1️⃣</div>
+                        <h3 class="text-lg font-bold mb-2">Data Collection</h3>
+                        <p class="text-gray-400">Gather market data from multiple sources</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-yellow-500 text-4xl mb-4">2️⃣</div>
+                        <h3 class="text-lg font-bold mb-2">Analysis</h3>
+                        <p class="text-gray-400">AI processes and analyzes the data</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-yellow-500 text-4xl mb-4">3️⃣</div>
+                        <h3 class="text-lg font-bold mb-2">Prediction</h3>
+                        <p class="text-gray-400">Generate trading signals and predictions</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-yellow-500 text-4xl mb-4">4️⃣</div>
+                        <h3 class="text-lg font-bold mb-2">Execution</h3>
+                        <p class="text-gray-400">Execute trades or provide recommendations</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Section -->
+            <div class="glass-effect rounded-xl p-8 mb-12">
+                <h2 class="text-3xl font-bold gradient-text mb-6">Our Team</h2>
+                <p class="text-gray-300 text-lg mb-6">
+                    TradingAI is built by a team of experienced traders, data scientists, and software engineers 
+                    who are passionate about making advanced trading technologies accessible to everyone.
+                </p>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center">
+                <h2 class="text-3xl font-bold gradient-text mb-8">Ready to Start Trading?</h2>
+                <button onclick="window.location.href='/pages/signup.html'" class="px-8 py-3 rounded-lg bg-yellow-500 hover:bg-yellow-400 transition-colors font-bold">
+                    Get Started Now
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="/js/auth.js"></script>
+</body>
+</html> 

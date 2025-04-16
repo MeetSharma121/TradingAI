@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="160" height="40" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Bull Icon -->
+    <g transform="translate(0,5)">
+        <path d="M25 5 L35 15 L30 25 L20 25 L15 15 Z" fill="url(#goldGradient)" />
+        <path d="M15 15 L20 25 L10 20 Z" fill="url(#goldGradient)" />
+        <path d="M35 15 L30 25 L40 20 Z" fill="url(#goldGradient)" />
+        <!-- Horns -->
+        <path d="M20 15 L15 5 L25 15" fill="url(#goldGradient)" />
+        <path d="M30 15 L35 5 L25 15" fill="url(#goldGradient)" />
+    </g>
+    
+    <!-- Text -->
+    <text x="50" y="25" font-family="Arial" font-weight="bold" font-size="20" fill="url(#goldGradient)">
+        TradingAI
+    </text>
+    
+    <!-- Gradients -->
+    <defs>
+        <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#FFD700" />
+            <stop offset="100%" style="stop-color:#FFA500" />
+        </linearGradient>
+    </defs>
+</svg> 
