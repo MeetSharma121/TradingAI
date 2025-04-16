@@ -57,6 +57,17 @@ NODE_ENV=development
 npm run dev
 ```
 
+## 📸 Screenshots
+<img width="1470" alt="Screenshot 2025-04-16 at 3 45 14 PM" src="https://github.com/user-attachments/assets/f7990a44-8162-4423-a44a-ba7374e269ab" />
+<img width="1470" alt="Screenshot 2025-04-16 at 3 45 49 PM" src="https://github.com/user-attachments/assets/64f8b404-e423-4e4d-aa9f-c9498ad59f81" />
+<img width="1470" alt="Screenshot 2025-04-16 at 3 45 30 PM" src="https://github.com/user-attachments/assets/81c0c4ef-5930-425e-aeb7-dfaa28fbc8a7" />
+<img width="1442" alt="Screenshot 2025-04-16 at 3 45 38 PM" src="https://github.com/user-attachments/assets/888eb3b2-e918-4f22-9f37-df0806718252" />
+<img width="852" alt="Screenshot 2025-04-16 at 3 46 04 PM" src="https://github.com/user-attachments/assets/fd79ae28-fa7e-473a-a22f-660225d3051e" />
+<img width="811" alt="Screenshot 2025-04-16 at 3 47 33 PM" src="https://github.com/user-attachments/assets/f321f831-e861-445b-bd7d-24df7fcd1a32" />
+
+
+
+
 ## 📦 Project Structure
 
 ```
